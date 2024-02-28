@@ -10,20 +10,18 @@ class Command(BaseCommand):
     help = "Create an order"
 
     def add_arguments(self, parser: CommandParser) -> None: 
-        parser.add_argument("client_id")
-        parser.add_argument("goods_id")
+        parser.add_argument("client_name")
+        parser.add_argument("goods_name")
 
     def handle(self, *args: Any, **options: Any) -> str | None:
-        cl = options.get("client_id")
-        gd = options.get("goods_id")
+        cl = options.get("client_name")
+        gd = options.get("goods_name")
         
         clients = Client.objects.all()
         goods_list = Goods.objects.all()
 
-        print(cl)
         client = clients.filter(name=cl).first()
         goods = goods_list.filter(name=gd).first()
-        print(goods, 654656)
         
         
         
