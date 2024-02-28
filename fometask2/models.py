@@ -6,7 +6,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=100)
     adress = models.CharField(max_length=100)
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
 
     def  __str__(self) -> str:
         return f"Name: {self.name}"
@@ -23,7 +23,7 @@ class Goods(models.Model):
 
 
 class Orders(models.Model):
-    client = models.ManyToManyField(Client)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, default=None)
     goods = models.ManyToManyField(Goods)
     total_amount = models.FloatField()
     date = models.DateTimeField(auto_now=True)

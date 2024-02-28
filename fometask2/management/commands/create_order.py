@@ -23,11 +23,14 @@ class Command(BaseCommand):
         client = clients.filter(name=cl).first()
         goods = goods_list.filter(name=gd).first()
         
+        order = Orders.objects.create(
+            client = client,
+            total_amount = 500.4,
+        )
         
-        
-        order, abc = Orders.objects.get_or_create(total_amount=5001.4)
+        # order, abc = Orders.objects.get_or_create(total_amount=5001.4)
 
-        order.client.add(client)
+        # order.client.add(client)
         order.goods.add(goods)
         order.save()
         self.stdout.write(f"Order:{order} ")
