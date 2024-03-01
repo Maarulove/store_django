@@ -29,4 +29,4 @@ class Orders(models.Model):
     date = models.DateTimeField(auto_now=True)
     
     def __str__(self) -> str:
-        return f"Name: {self.client}, {self.goods}"
+        return f"{self.client}, {self.goods}"
