@@ -8,10 +8,11 @@
 <body>
     <sect.oion>
         {% csrf_token %}
-        <h1>Orders list within last {{ time }} days by {{ client }} </h1>
+
+        <h1>Goods list ordered by client {{ client }} within last {{ time }} days </h1>
         {% for order in orders %}
-        {{ order }}
-        <br>
+            {{ order }}
+            <br>
         {% endfor %}
     </sect.oion>
 
