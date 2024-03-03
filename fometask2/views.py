@@ -8,10 +8,7 @@ from .forms import ProductForm
 
 
 def sorted_orders(request, client_id):
-
     days = 30
-    days = 2
-    days = 365
 
     client = Client.objects.get(pk=client_id)
     last_n_days = timezone.now() - timedelta(days=days)
@@ -25,7 +22,6 @@ def sorted_orders(request, client_id):
 def add_goods(request):
     if request.method == "POST": 
         form = ProductForm(request.POST, request.FILES)
-        print(form.errors)
         if form.is_valid():
             form.save()
             return render(request, 'fometask2/image.html', {'form': form})
