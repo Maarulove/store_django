@@ -3,6 +3,8 @@ from django.core.management.base import CommandParser
 from fometask2.models import Client
 from django.core.management import BaseCommand
 
+
+
 class Command(BaseCommand):
     help = "Create Author"
 

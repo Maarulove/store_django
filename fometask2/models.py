@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Client(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
@@ -15,7 +16,7 @@ class Goods(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.FloatField()
-    amount = models.IntegerField()
+    amount = models.IntegerField()  
     photo = models.ImageField()
     date_add = models.DateField(auto_now_add=True)
 

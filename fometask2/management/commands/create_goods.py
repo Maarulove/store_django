@@ -5,6 +5,7 @@ from fometask2.models import Goods
 from django.utils import lorem_ipsum
 import random
 
+
 class Command(BaseCommand):
     help = "Create goods"
 

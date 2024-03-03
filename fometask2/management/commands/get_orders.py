@@ -10,8 +10,6 @@ class Command(BaseCommand):
     help = "get the orders by time"
 
     def handle(self, *args: Any, **options: Any) -> str | None:
-        # days = 365
-        # days = 30
         days = 7
         last_n_days = timezone.now() - timedelta(days=days)
 
