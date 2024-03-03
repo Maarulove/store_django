@@ -15,7 +15,6 @@ def sorted_orders(request, client_id):
 
     recent_orders = Goods.objects.filter(orders__date__gte=last_n_days, orders__client=client).distinct()
     orders = recent_orders.order_by("date_add")
-
     return render(request, "fometask2/get_orders.html", {"orders": orders, "client":client, "time":days})
 
 

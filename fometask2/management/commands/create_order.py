@@ -16,12 +16,6 @@ class Command(BaseCommand):
         goods_amount = options.get('goods_amount')
         clients = Client.objects.all()
         goods_list = Goods.objects.all()
-
-        # client = clients.filter(name=cl).first()
-        # # goods = goods_list.filter(name__in=gd)
-
-        # goods = Goods.objects.filter(name__in=gd)
-        
         order = Orders.objects.create(
             client = choice(clients),
             total_amount = 0,
@@ -37,7 +31,5 @@ class Command(BaseCommand):
 
         order.save()
         print(order.goods)
-        # print(goods)
-        # print(order.goods)
         self.stdout.write(f"Order: Client {order} ")
     
