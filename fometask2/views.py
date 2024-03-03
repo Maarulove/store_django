@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Client, Goods, Orders
 from django.utils import timezone
 from datetime import timedelta
+from .forms import ProductForm
 # Create your views here.
 
 
@@ -19,3 +20,16 @@ def sorted_orders(request, client_id):
     orders = recent_orders.order_by("date_add")
 
     return render(request, "fometask2/get_orders.html", {"orders": orders, "client":client, "time":days})
+
+
+def add_goods(request):
+    if request.method == "POST": 
+        form = ProductForm(request.POST, request.FILES)
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+            return render(request, 'fometask2/image.html', {'form': form})
+        
+    else:   
+        form = ProductForm()
+    return render(request, 'fometask2/add_product.html', {'form':form})

@@ -16,6 +16,7 @@ class Goods(models.Model):
     description = models.TextField()
     price = models.FloatField()
     amount = models.IntegerField()
+    photo = models.ImageField()
     date_add = models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:

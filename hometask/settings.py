@@ -19,13 +19,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8sqq!&3-zxbes-&vyr3oi6n4^hk_$bin@wcc1+(_kh7*4==3ry'
+# SECURITY WARNING: keep the secret key used in produc
+
+SECRET_KEY = 'django-insecure-da(@1j4*(tup@48bl)dj)q&q0_(qdb2y5-%$9u7kaojsg)yu65'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "192.168.1.14",
+    "127.0.0.1"
+]
 
 
 # Application definition
@@ -55,7 +59,9 @@ ROOT_URLCONF = 'hometask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL = 'media/'                #####################################
+MEDIA_ROOT = BASE_DIR / 'media/'     #####################################
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
