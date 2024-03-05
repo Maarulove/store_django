@@ -8,7 +8,7 @@ class Client(models.Model):
     phone = models.CharField(max_length=100)
     adress = models.CharField(max_length=100)
     date = models.DateField(auto_now=True)
-
+    
     def  __str__(self) -> str:
         return f"Name: {self.name}"
     
