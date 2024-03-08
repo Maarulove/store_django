@@ -30,7 +30,6 @@ SECRET_KEY =  os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-
 if os.environ.get("DEBUG") == "False":
     DEBUG = False
 else:
@@ -93,7 +92,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hometask.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

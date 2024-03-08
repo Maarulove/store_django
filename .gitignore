@@ -8,8 +8,6 @@ fometask2/migrations/__pycache__/0004_goods_photo.cpython-310.pyc
 fometask2/migrations/__pycache__/0005_alter_goods_photo.cpython-310.pyc
 media/
 venv/
-.env
-db.sqlite3
 hometask/__pycache__/settings.cpython-310.pyc
 hometask/__pycache__/urls.cpython-310.pyc
 
