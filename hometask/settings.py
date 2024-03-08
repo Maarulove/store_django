@@ -44,7 +44,7 @@ INTERNAL_IPS = [ ########## i have xreated it for debug toolbar
 ALLOWED_HOSTS = [
     "192.168.1.14",
     "127.0.0.1",
-    'MaaruLove.pythonanywhere.com'
+    "MaaruLove.pythonanywhere.com",
 ]
 
 
