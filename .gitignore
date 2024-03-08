@@ -7,7 +7,6 @@ fometask2/migrations/__pycache__/0003_alter_client_date_remove_orders_client_ord
 fometask2/migrations/__pycache__/0004_goods_photo.cpython-310.pyc
 fometask2/migrations/__pycache__/0005_alter_goods_photo.cpython-310.pyc
 media/
-requirements.txt
 venv/
 .env
 db.sqlite3
