@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv  
+import os
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,14 +26,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in produc
 
-SECRET_KEY = 'django-insecure-da(@1j4*(tup@48bl)dj)q&q0_(qdb2y5-%$9u7kaojsg)yu65'
+SECRET_KEY =  os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+
+if os.environ.get("DEBUG") == "False":
+    DEBUG = False
+else:
+    DEBUG = True
+
+
+INTERNAL_IPS = [ ########## i have xreated it for debug toolbar     
+    "127.0.0.1",
+]
 
 ALLOWED_HOSTS = [
     "192.168.1.14",
-    "127.0.0.1"
+    "127.0.0.1",
+    'MaaruLove.pythonanywhere.com'
 ]
 
 
@@ -42,9 +58,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fometask2',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,13 +99,18 @@ WSGI_APPLICATION = 'hometask.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("MYSQL_DBNAME"),
+        "USER": os.getenv("MYSQL_USER"),
+        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
+        "HOST": os.getenv("MYSQL_HOST"),
+        "OPTIONS": {
+            "init_command": "SET NAMES 'utf8mb4';SET sql_mode = 'STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+            },
+        }
     }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -124,6 +147,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'static/'
 MEDIA_URL = 'media/'                #####################################
 MEDIA_ROOT = BASE_DIR / 'media/'     #####################################
 
