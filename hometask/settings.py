@@ -35,6 +35,8 @@ if os.environ.get("DEBUG") == "False":
 else:
     DEBUG = True
 
+SESSION_COOKIE_SECURE = True  
+CSRF_COOKIE_SECURE = True
 
 INTERNAL_IPS = [ ########## i have xreated it for debug toolbar     
     "127.0.0.1",
@@ -43,7 +45,7 @@ INTERNAL_IPS = [ ########## i have xreated it for debug toolbar
 ALLOWED_HOSTS = [
     "192.168.1.14",
     "127.0.0.1",
-    "MaaruLove.pythonanywhere.com",
+    "maarulove77.pythonanywhere.com",
 ]
 
 
