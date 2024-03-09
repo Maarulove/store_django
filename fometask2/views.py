@@ -29,6 +29,7 @@ def sorted_orders(request, client_id, days):
         messages.success(request, 'Provide a valid id or timeframe!')
         return render(request, 'fometask2/index.html')
 
+
 def add_goods(request):
     if request.method == "POST": 
         form = ProductForm(request.POST, request.FILES)
@@ -40,3 +41,14 @@ def add_goods(request):
     else:   
         form = ProductForm()
     return render(request, 'fometask2/add_product.html', {'form':form})
+
+
+def goods_list(request):
+    if request.method == "GET":
+        goods = Goods.objects.all()
+        return render(request, 'fometask2/goods.html', {"goods": goods})
+
+def client_list(request):
+    if request.method == "GET":
+        clients = Client.objects.all()
+        return render(request, 'fometask2/clients.html', {"clients": clients})

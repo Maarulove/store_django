@@ -29,18 +29,25 @@
 </head>
 <body>
     {% if messages %}
-        <meta http-equiv="refresh" content="5;URL='/client/'">
+        <meta http-equiv="refresh" content="5;URL='/'">
         <div class="flash-message show">
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
         </div>
     {% endif %}
+
     <a href="{% url 'add_product' %}">Add new Product</a> <br>
+    <br>
+    <a href="{% url 'goods' %}"> Goods list </a> <br> <br>
+    <a href="{% url 'clients' %}"> Clients list </a> <br>
+
+
 
     <h2> Get client orders </h2>
-
     <form method="GET" action="{% url 'sorted_orders' 0 0 %}">
+        {% csrf_token %}
+
         <label for="client_id">Client ID:</label>
         <input type="text" name="client_id" id="client_id", placeholder="numbers only">
             <br>
