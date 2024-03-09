@@ -1,0 +1,13 @@
+fometask2/__pycache__/
+fometask2/management/commands/__pycache__/get_orders.cpython-310.pyc
+fometask2/migrations/0003_alter_client_date_remove_orders_client_orders_client.py
+fometask2/migrations/0004_goods_photo.py
+fometask2/migrations/0005_alter_goods_photo.py
+fometask2/migrations/__pycache__/0003_alter_client_date_remove_orders_client_orders_client.cpython-310.pyc
+fometask2/migrations/__pycache__/0004_goods_photo.cpython-310.pyc
+fometask2/migrations/__pycache__/0005_alter_goods_photo.cpython-310.pyc
+media/
+venv/
+hometask/__pycache__/settings.cpython-310.pyc
+hometask/__pycache__/urls.cpython-310.pyc
+
