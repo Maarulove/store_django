@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>My Store</h1>
+    
+    <style>
+        .flash-message {
+            display: none;
+            position:static;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            padding: 20px;
+            background-color: #879386;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .flash-message.show {
+            display: block;
+        }
+    </style>    
+
+</head>
+<body>
+    {% if messages %}
+        <meta http-equiv="refresh" content="5;URL='/client/'">
+        <div class="flash-message show">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <a href="{% url 'add_product' %}">Add new Product</a> <br>
+
+    <h2> Get client orders </h2>
+
+    <form method="GET" action="{% url 'sorted_orders' 0 0 %}">
+        <label for="client_id">Client ID:</label>
+        <input type="text" name="client_id" id="client_id", placeholder="numbers only">
+            <br>
+        <label for="days">Timeframe</label>
+        <input type="text" name="days" id="days" placeholder="Days: Numbers only..">
+        <br> <br>
+        <button type="submit">Get client orders</button>
+    </form>
+
+
+</body>
+</html>
